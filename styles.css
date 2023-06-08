@@ -1,19 +1,39 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
     text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 10px 0;
 }
 
 #betForm {
-    margin: 0 auto;
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
 }
 
 #betForm label,
 #betForm input {
-    display: block;
+    width: 100%;
     margin-bottom: 10px;
 }
 
@@ -24,12 +44,19 @@ h1 {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#betForm input[type="button"]:hover {
+    background-color: #45a049;
 }
 
 #resultsTable {
     margin: 20px auto;
     width: 400px;
     border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 #resultsTable th,
@@ -41,4 +68,15 @@ h1 {
 
 #resultsTable tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+#resultsTable tr:hover {
+    background-color: #ddd;
+}
+
+canvas {
+    width: 80%;
+    height: 400px;
+    margin: 0 auto;
+    display: block;
 }

@@ -7,7 +7,7 @@
     <script type="text/javascript" src="simulator.js"></script>
 </head>
 <body>
-    <h1>Simulate Gambling Bet Outcomes</h1>
+    <h1>Limbo Outcomes</h1>
     <form id="betForm">
         <label for="serverSeed">Server Seed:</label><br>
         <input type="text" id="serverSeed" name="serverSeed"><br>
@@ -21,11 +21,17 @@
         <input type="number" id="targetMultiplier" name="targetMultiplier" min="1"><br>
         <input type="button" value="Simulate" onclick="simulateBets()">
     </form>
+    <canvas id="chart"></canvas>
+    <p>Mean: <span id="mean"></span></p>
+    <p>Median: <span id="median"></span></p>
+    <p>Standard Deviation: <span id="stdDev"></span></p>
+    <p>Average Distance: <span id="avgDist"></span></p>
     <table id="resultsTable">
         <thead>
             <tr>
                 <th>Nonce</th>
                 <th>Result</th>
+                <th>Distance to Next</th>
             </tr>
         </thead>
         <tbody>

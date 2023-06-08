@@ -1,3 +1,4 @@
+let stats, distances, chart;
 async function simulateBets() {
     let serverSeed = document.getElementById('serverSeed').value;
     let clientSeed = document.getElementById('clientSeed').value;
@@ -8,7 +9,9 @@ async function simulateBets() {
   
     // Clear table
     resultsTable.innerHTML = '';
-  
+    stats = { count: 0, sum: 0, sumOfSquares: 0, values: [], lastNonce: startNonce };
+    distances = [];
+
     let batchSize = 1000; // we can adjust this based on performance
     let nonce = startNonce;
     let batchStart = startNonce;
@@ -20,21 +23,46 @@ async function simulateBets() {
           let row = resultsTable.insertRow();
           let nonceCell = row.insertCell(0);
           let resultCell = row.insertCell(1);
+          let distanceCell = row.insertCell(2);
   
           nonceCell.innerHTML = nonce;
           resultCell.innerHTML = result.toFixed(2);
+          distanceCell.innerHTML = nonce - stats.lastNonce;
+
+          // Update stats
+          stats.count++;
+          stats.sum += result;
+          stats.sumOfSquares += result * result;
+          stats.values.push(result);
+          distances.push(nonce - stats.lastNonce);
+          stats.lastNonce = nonce;
         }
       }
   
       if (nonce <= endNonce) {
         batchStart += batchSize;
         setTimeout(processBatch, 0); // schedule next batch
+      } else {
+        displayStats();
       }
     }
   
     processBatch(); // start processing batches
-  }
+}
+
+function displayStats() {
+    stats.values.sort((a, b) => a - b);
+    const mean = stats.sum / stats.count;
+    const median = stats.values[Math.floor(stats.count / 2)];
+    const stdDev = Math.sqrt(stats.sumOfSquares / stats.count - mean * mean);
+    const avgDist = distances.reduce((a, b) => a + b, 0) / distances.length;
   
+    document.getElementById('mean').textContent = mean.toFixed(2);
+    document.getElementById('median').textContent = median.toFixed(2);
+    document.getElementById('stdDev').textContent = stdDev.toFixed(2);
+    document.getElementById('avgDist').textContent = avgDist.toFixed(2);
+}
+
   async function _simulateBet(serverSeed, clientSeed, nonce) {
     const key = CryptoJS.enc.Utf8.parse(serverSeed);
     const message = CryptoJS.enc.Utf8.parse(`${clientSeed}:${nonce}:0`);
