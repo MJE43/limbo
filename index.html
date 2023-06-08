@@ -9,16 +9,16 @@
 <body>
     <h1>Limbo Outcomes</h1>
     <form id="betForm">
-        <label for="serverSeed">Server Seed:</label><br>
-        <input type="text" id="serverSeed" name="serverSeed"><br>
-        <label for="clientSeed">Client Seed:</label><br>
-        <input type="text" id="clientSeed" name="clientSeed"><br>
-        <label for="startNonce">Start Nonce:</label><br>
-        <input type="number" id="startNonce" name="startNonce" min="0"><br>
-        <label for="endNonce">End Nonce:</label><br>
-        <input type="number" id="endNonce" name="endNonce" min="0"><br>
-        <label for="targetMultiplier">Target Multiplier:</label><br>
-        <input type="number" id="targetMultiplier" name="targetMultiplier" min="1"><br>
+        <label for="serverSeed">Server Seed:</label>
+        <input type="text" id="serverSeed" name="serverSeed">
+        <label for="clientSeed">Client Seed:</label>
+        <input type="text" id="clientSeed" name="clientSeed">
+        <label for="startNonce">Start Nonce:</label>
+        <input type="number" id="startNonce" name="startNonce" min="0">
+        <label for="endNonce">End Nonce:</label>
+        <input type="number" id="endNonce" name="endNonce" min="0">
+        <label for="targetMultiplier">Target Multiplier:</label>
+        <input type="number" id="targetMultiplier" name="targetMultiplier" min="1">
         <input type="button" value="Simulate" onclick="simulateBets()">
     </form>
     <canvas id="chart"></canvas>
