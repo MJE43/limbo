@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Limbo Results</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script type="text/javascript" src="simulator.js"></script>
+</head>
+<body>
+    <h1>Simulate Gambling Bet Outcomes</h1>
+    <form id="betForm">
+        <label for="serverSeed">Server Seed:</label><br>
+        <input type="text" id="serverSeed" name="serverSeed"><br>
+        <label for="clientSeed">Client Seed:</label><br>
+        <input type="text" id="clientSeed" name="clientSeed"><br>
+        <label for="startNonce">Start Nonce:</label><br>
+        <input type="number" id="startNonce" name="startNonce" min="0"><br>
+        <label for="endNonce">End Nonce:</label><br>
+        <input type="number" id="endNonce" name="endNonce" min="0"><br>
+        <label for="targetMultiplier">Target Multiplier:</label><br>
+        <input type="number" id="targetMultiplier" name="targetMultiplier" min="1"><br>
+        <input type="button" value="Simulate" onclick="simulateBets()">
+    </form>
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>Nonce</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>

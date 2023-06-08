@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#betForm {
+    margin: 0 auto;
+    width: 200px;
+}
+
+#betForm label,
+#betForm input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#betForm input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#resultsTable {
+    margin: 20px auto;
+    width: 400px;
+    border-collapse: collapse;
+}
+
+#resultsTable th,
+#resultsTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#resultsTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
